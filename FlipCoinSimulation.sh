@@ -24,9 +24,9 @@ then
 	echo We have a tie
 elif [[ $headWinCounter -gt $tailWinCounter ]]
 then
-	echo HEADS has won
+	echo HEADS has won by $((headWinCounter-tailWinCounter)) tosses
 else
-	echo TAILS has won
+	echo TAILS has won by $((tailWinCounter-headWinCounter)) tosses
 fi
 
 echo Number of times HEAD won: $headWinCounter
