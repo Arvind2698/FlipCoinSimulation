@@ -2,14 +2,12 @@
 
 echo Welcome to the coin flip program
 
-read -p "How many times do you want to flip the count" iteration
-
 #variables
 headWinCounter=0
 tailWinCounter=0
 
 
-for ((count=0;count<$iteration;count++))
+while [[ headWinCounter -lt 21 && tailWinCounter -lt 21  ]]
 do
 	flip=$((RANDOM%2))
 
@@ -20,6 +18,16 @@ do
 		((tailWinCounter++))
 	fi
 done
+
+if [[ $headWinCounter -eq $tailWinCounter ]]
+then
+	echo We have a tie
+elif [[ $headWinCounter -gt $tailWinCounter ]]
+then
+	echo HEADS has won
+else
+	echo TAILS has won
+fi
 
 echo Number of times HEAD won: $headWinCounter
 echo Number of times TAIL won: $tailWinCounter
